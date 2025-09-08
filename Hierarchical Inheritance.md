@@ -4,37 +4,92 @@
 ---
 
 ### AIM  
-To write a Python program to get the employee and doctor details and display them using hierarchical inheritance. Create a parent (base) class named `Details` and two child (derived) classes named `Employee` and `Doctor`.
+To write a Python program using hierarchical inheritance where a base class Details is inherited by two derived classes Employee and Doctor to store and display their respective details.
 
 ---
 
 ### ALGORITHM
+1.	Start the program.
+2.	Define a base class Details with a constructor to initialize id, name, and gender.
+3.	Define a class Employee that inherits from Details.
+4.	In the Employee class, define a constructor that calls the base class constructor and initializes company and department.
+5.	Define a display() method in the Employee class to print employee details.
+6.	Define another class Doctor that also inherits from Details.
+7.	In the Doctor class, define a constructor that calls the base class constructor and initializes hospital and department.
+8.	Define a display() method in the Doctor class to print doctor details.
+9.	Accept user inputs for both employee and doctor details.
+10.	Create instances of Employee and Doctor using the input values.
+11.	Call the display() method for both instances to show their details.
+12.	End the program.
 
-1. **Begin the program.**
-2. **Create a class Details** with an `__init__` method to initialize three attributes: `id`, `name`, and `gender`.
-3. **Define a method display_details()** to print the values of `id`, `name`, and `gender`.
-4. **Create a class Employee** that inherits from the `Details` class. 
-   - Add two additional attributes: `company` and `department`.
-   - Override the `display_details()` method to print the employee-specific attributes (`company` and `department`) along with the inherited details.
-5. **Create a class Doctor** that also inherits from the `Details` class. 
-   - Add two additional attributes: `hospital` and `department`.
-   - Override the `display_details()` method to print the doctor-specific attributes (`hospital` and `department`) along with the inherited details.
-6. **Accept input** for employee and doctor details.
-7. **Create objects of Employee and Doctor** using the input.
-8. **Call the `display_details()` method** for both objects to print the details.
-9. **Terminate the program.**
-
----
 
 ### PROGRAM
 ```
+#Reg.NO:212222060204
+#Name:RUPESH J
+class Details:
+    def __init__(self, emp_id, name, gender):
+        self.emp_id = emp_id
+        self.name = name
+        self.gender = gender
+
+class Employee(Details):
+    def __init__(self, emp_id, name, gender, company, department):
+        super().__init__(emp_id, name, gender)  
+        self.company = company
+        self.department = department
+
+    def display_employee(self):
+        return (f"Employee Object\n"
+                f"Id:  {self.emp_id}\n"
+                f"Name:  {self.name}\n"
+                f"Gender:  {self.gender}\n"
+                f"Company:  {self.company}\n"
+                f"Department:  {self.department}")
+
+class Doctor(Details):
+    def __init__(self, emp_id, name, gender, hospital, department):
+        super().__init__(emp_id, name, gender)
+        self.hospital = hospital
+        self.department = department
+
+    def display_doctor(self):
+        return (f"Doctor Object\n"
+                f"Id:  {self.emp_id}\n"
+                f"Name:  {self.name}\n"
+                f"Gender:  {self.gender}\n"
+                f"Hospital:  {self.hospital}\n"
+                f"Department:  {self.department}")
+
+if __name__ == "__main__":
+    # Input for Employee
+    emp_id = int(input())
+    emp_name = input()
+    emp_gender = input()
+    emp_company = input()
+    emp_department = input()
+
+    employee = Employee(emp_id, emp_name, emp_gender, emp_company, emp_department)
+
+    doc_id = int(input())
+    doc_name = input()
+    doc_gender = input()
+    doc_hospital = input()
+    doc_department = input()
+
+    doctor = Doctor(doc_id, doc_name, doc_gender, doc_hospital, doc_department)
+
+    print(employee.display_employee())
+    print()
+    print(doctor.display_doctor())
 
 
 ```
 
 ### OUTPUT  
 
-(Output Screenshot)  
+![image](https://github.com/user-attachments/assets/58d8d741-ca3a-4a18-9aea-34d208312683)
 
 
 ### RESULT
+Thus, the Python program to demonstrate hierarchical inheritance using Details, Employee, and Doctor classes has been implemented and executed successfully.
